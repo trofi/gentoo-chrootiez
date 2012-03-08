@@ -1,0 +1,9 @@
+Every subdir in this directory is bound to chroot with
+    mount --bind
+command.
+
+It is handy to place some overlays here and things like
+    /usr/portage
+    /usr/portage/distifes
+and so on.
+

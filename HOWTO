@@ -1,0 +1,21 @@
+cd ..
+# Download something fresh from:
+#    ftp://distfiles.gentoo.org/pub/gentoo/releases/$ARCH/current-stage3/
+mkdir gentoo-$ARCH
+cd    gentoo-$ARCH
+tar xvjpf ../stage3-*.tar.bz2
+cd ..
+
+# create ./gentoo-$arch.sh with contents like the following:
+   #!/bin/sh
+   sudo gentoo-chrootiez/scripts/run_chroot.sh gentoo-$ARCH 32 "$@"
+
+./gentoo-$arch.sh
+
+echo 'source /bound/conf/make.conf' >> /etc/make.conf
+#optionally
+echo 'ACCEPT_KEYWORDS="~$ARCH"'      >> /etc/make.conf
+
+eselect profile set default/linux/$ARCH/10.0
+
+# Done!

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Hia! I am script ran from gentoo chroot
+
+source /etc/profile
+env-update
+
+# we play very dirty games with runlevels
+rm -rf /var/lib/init.d
+
+# uncomment this line if you need normally running system:
+#/sbin/rc default
+
+# or just po poke some stuff interactively use this one:
+/bin/bash "$@"

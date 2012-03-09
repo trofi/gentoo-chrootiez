@@ -41,13 +41,13 @@ do
 done
 
 setarch_wrapper=
-case "$CHROOT_BITS" in
-    32|64) setarch_wrapper=linux$ ;;
+case "$chroot_bits" in
+    32|64) setarch_wrapper=linux$chroot_bits ;;
 esac
 info "entering chroot ..."
 $setarch_wrapper /usr/bin/chroot "$chroot_path" /run_from_chroot "$@"
 # for daemons you might like to use:
-#>$CHROOTS_BASE/$CHROOT_NAME.log 2>&1
+#>$chroots_base/$chroot_name.log 2>&1
 info "... exited from chroot"
 
 for d in /dev/shm /dev/pts /dev /sys /proc

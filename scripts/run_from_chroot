@@ -11,5 +11,5 @@ rm -rf /var/lib/init.d
 # uncomment this line if you need normally running system:
 #/sbin/rc default
 
-# or just po poke some stuff interactively use this one:
+# or just to poke some stuff interactively use this one:
 /bin/bash "$@"

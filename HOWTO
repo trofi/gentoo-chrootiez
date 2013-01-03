@@ -1,4 +1,7 @@
-cd ..
+cd bound
+./make_typical_binds.sh
+./make_typical_confs.sh
+cd ../..
 # Download something fresh from:
 #    ftp://distfiles.gentoo.org/pub/gentoo/releases/$ARCH/current-stage3/
 mkdir gentoo-$ARCH

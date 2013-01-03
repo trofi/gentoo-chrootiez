@@ -1,2 +1,0 @@
-MAKEOPTS=-j2
-FEATURES="${FEATURES} test"

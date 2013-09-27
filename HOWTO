@@ -15,9 +15,9 @@ cd ..
 
 ./gentoo-$arch.sh
 
-echo 'source /bound/conf/make.conf' >> /etc/make.conf
+echo 'source /bound/conf/make.conf' >> /etc/portage/make.conf
 #optionally
-echo 'ACCEPT_KEYWORDS="~$ARCH"'      >> /etc/make.conf
+echo 'ACCEPT_KEYWORDS="~$ARCH"'      >> /etc/portage/make.conf
 
 eselect profile set default/linux/$ARCH/10.0
 

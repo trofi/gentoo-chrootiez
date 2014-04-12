@@ -38,6 +38,9 @@ do
     fi
 done
 
+mkdir -vp "$chroot_path"/dev/pts
+mkdir -vp "$chroot_path"/dev/shm
+
 mount -t proc   proc   "$chroot_path"/proc
 mount -t sysfs  sysfs  "$chroot_path"/sys
 mount -t devpts devpts -onewinstance,ptmxmode=0666,mode=620,gid=5 "$chroot_path"/dev/pts

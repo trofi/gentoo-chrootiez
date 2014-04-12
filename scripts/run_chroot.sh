@@ -35,10 +35,10 @@ do
     fi
 done
 
-for d in /proc /sys /dev /dev/pts /dev/shm
-do
-    mount --bind "$d" $chroot_path"/$d"
-done
+mount -t proc   proc   "$chroot_path"/proc
+mount -t sysfs  sysfs  "$chroot_path"/sys
+mount -t devpts devpts "$chroot_path"/dev/pts
+mount -t tmpfs  tmpfs  "$chroot_path"/dev/shm
 
 setarch_wrapper=
 case "$chroot_bits" in
@@ -50,7 +50,7 @@ $setarch_wrapper /usr/bin/chroot "$chroot_path" /run_from_chroot "$@"
 #>$chroots_base/$chroot_name.log 2>&1
 info "... exited from chroot"
 
-for d in /dev/shm /dev/pts /dev /sys /proc
+for d in /dev/shm /dev/pts /sys /proc
 do
     umount $chroot_path"/$d"
 done

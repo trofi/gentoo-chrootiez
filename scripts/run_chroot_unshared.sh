@@ -40,7 +40,7 @@ done
 
 mount -t proc   proc   "$chroot_path"/proc
 mount -t sysfs  sysfs  "$chroot_path"/sys
-mount -t devpts devpts "$chroot_path"/dev/pts
+mount -t devpts devpts -onewinstance,ptmxmode=0666,mode=620,gid=5 "$chroot_path"/dev/pts
 mount -t tmpfs  tmpfs  "$chroot_path"/dev/shm
 
 setarch_wrapper=

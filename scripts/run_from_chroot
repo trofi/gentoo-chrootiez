@@ -13,8 +13,8 @@ rm -rf /var/lib/init.d
 
 # Run per-chroot local script, if it exists
 if [ -x /run_from_chroot.local ]; then
-       /run_from_chroot.local "$@"
+       exec /run_from_chroot.local "$@"
 else
 # or just to poke some stuff interactively use this one:
-       /bin/bash "$@"
+       exec /bin/bash "$@"
 fi

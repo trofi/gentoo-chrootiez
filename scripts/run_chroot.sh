@@ -2,7 +2,9 @@
 
 script_base=gentoo-chrootiez
 
-exec unshare --mount \
+[ -f "$script_base"/chrootiez_config ] && . "$script_base"/chrootiez_config
+
+exec unshare $CHROOTIEZ_UNSHARE_EXTRA_OPTS --mount \
      "$script_base"/scripts/run_chroot_unshared.sh "$@"
 
 echo "WARNING: unshare not found, only chroot facility will be used"

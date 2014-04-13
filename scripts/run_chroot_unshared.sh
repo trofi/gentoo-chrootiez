@@ -46,6 +46,9 @@ mount -t sysfs  sysfs  "$chroot_path"/sys
 mount -t devpts devpts -onewinstance,ptmxmode=0666,mode=620,gid=5 "$chroot_path"/dev/pts
 mount -t tmpfs  tmpfs  "$chroot_path"/dev/shm
 
+# don't use host's one
+ln -fsv pts/ptmx "$chroot_path"/dev/ptmx
+
 setarch_wrapper=
 case "$chroot_bits" in
     32|64) setarch_wrapper=linux$chroot_bits ;;

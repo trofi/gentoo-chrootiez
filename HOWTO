@@ -3,7 +3,7 @@ cd bound
 ./make_typical_confs.sh
 cd ../..
 # Download something fresh from:
-#    ftp://distfiles.gentoo.org/pub/gentoo/releases/$ARCH/current-stage3/
+#    http://distfiles.gentoo.org/releases/$ARCH/autobuilds/
 mkdir gentoo-$ARCH
 cd    gentoo-$ARCH
 tar xvjpf ../stage3-*.tar.bz2

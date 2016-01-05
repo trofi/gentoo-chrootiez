@@ -43,12 +43,25 @@ mkdir -vp "$chroot_path"/dev/shm
 
 mount -t proc   proc   "$chroot_path"/proc
 mount -t sysfs  sysfs  "$chroot_path"/sys
+
+# See linux/Documentation/filesystems/devpts.txt on
+# semantics on /dev/pts in each mode.
 case "${CHROOTIEZ_DEVPTS}" in
     newinstance)
         mount -t devpts devpts -onewinstance,ptmxmode=0666,mode=620,gid=5 "$chroot_path"/dev/pts
+        # don't use the default one
+        rm -v "$chroot_path"/dev/ptmx
+        ln -fsv pts/ptmx "$chroot_path"/dev/ptmx
         ;;
     host)
         mount --bind /dev/pts "$chroot_path"/dev/pts
+        if [ -L "$chroot_path"/dev/ptmx ]; then
+            # restore from possible previous newinstance setup
+            warn "restoring '$chroot_path/dev/ptmx' to defaults:"
+            rm -v "$chroot_path"/dev/ptmx
+            mknod -m666 "$chroot_path"/dev/ptmx c 5 2
+            ls -l "$chroot_path"/dev/ptmx
+        fi
         ;;
     none)
         ;;
@@ -58,8 +71,6 @@ case "${CHROOTIEZ_DEVPTS}" in
 esac
 mount -t tmpfs  tmpfs  "$chroot_path"/dev/shm
 
-# don't use host's one
-ln -fsv pts/ptmx "$chroot_path"/dev/ptmx
 
 setarch_wrapper=
 case "$chroot_bits" in

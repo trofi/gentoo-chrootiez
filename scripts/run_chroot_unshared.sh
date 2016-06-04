@@ -27,6 +27,9 @@ cp "$chroots_base"/$script_base/scripts/run_from_chroot "$chroot_path"/run_from_
 # unshare whole mount namespace
 mount --make-rprivate /
 
+# pass through our current (pseudo)terminal as current console
+mount --bind "$(tty)" "$chroot_path"/dev/console
+
 for d in "$chroots_base"/$script_base/bound/*
 do
     if [ -d "$d" ]; then

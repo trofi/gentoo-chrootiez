@@ -18,6 +18,6 @@ if [ "${makeopts}" = auto ]; then
 fi
 
 cat >conf/make.conf.local <<EOF
-MAKEOPTS=-j${makeopts}
+MAKEOPTS="-j${makeopts} -l${makeopts}"
 FEATURES="\${FEATURES} test"
 EOF

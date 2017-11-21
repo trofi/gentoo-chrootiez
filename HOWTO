@@ -45,4 +45,7 @@ emerge -v $(echo
     # arch testing
     app-text/wgetpaste
     dev-python/requests
+
+    # random fixes
+    dev-vcs/git
 )

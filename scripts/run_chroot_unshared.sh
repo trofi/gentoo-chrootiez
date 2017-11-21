@@ -21,7 +21,6 @@ mkdir -vp "$chroot_path"/bound
 cp /etc/resolv.conf  "$chroot_path"/etc/resolv.conf
 cp /etc/hosts        "$chroot_path"/etc/hosts
 cp /etc/localtime    "$chroot_path"/etc/localtime
-cp /etc/locale.gen   "$chroot_path"/etc/locale.gen
 cp "$chroots_base"/$script_base/scripts/run_from_chroot "$chroot_path"/run_from_chroot
 
 # unshare whole mount namespace

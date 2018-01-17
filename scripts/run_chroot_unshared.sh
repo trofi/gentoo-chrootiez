@@ -27,7 +27,14 @@ cp "$chroots_base"/$script_base/scripts/run_from_chroot "$chroot_path"/run_from_
 mount --make-rprivate /
 
 # pass through our current (pseudo)terminal as current console
+touch "$chroot_path"/dev/console
 mount --bind "$(tty)" "$chroot_path"/dev/console
+
+# pass through other basic /dev/* as-is
+for f in full null random urandom zero; do
+    touch "$chroot_path"/dev/"${f}"
+    mount --bind /dev/"${f}" "$chroot_path"/dev/"${f}"
+done
 
 for d in "$chroots_base"/$script_base/bound/*
 do

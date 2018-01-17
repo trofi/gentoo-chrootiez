@@ -22,7 +22,7 @@ else
     echo "                     To fix the damage run: 'mount -oremount /dev/pts'"
     echo ''
     echo '      Example:'
-    echo '        CHROOTIEZ_UNSHARE_EXTRA_OPTS="--ipc --mount --pid --uts --fork"'
+    echo '        CHROOTIEZ_UNSHARE_EXTRA_OPTS="--ipc --mount --pid --uts --fork --user --map-root-user"'
     echo '        CHROOTIEZ_DEVPTS=newinstance'
 fi
 

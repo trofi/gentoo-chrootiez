@@ -9,9 +9,18 @@ cd    gentoo-$ARCH
 tar xvjpf ../stage3-*.tar.bz2
 cd ..
 
-# create ./gentoo-$arch.sh with contents like the following:
+# create ./gentoo-$ARCH.sh with contents like the following:
    #!/bin/sh
    sudo gentoo-chrootiez/scripts/run_chroot.sh gentoo-$ARCH 32 "$@"
+   # You can also try experimental unprivileged user namespace.
+   # For that you need:
+   # - enable user namespaces at ./chrootiez_config:
+   #       CHROOTIEZ_UNSHARE_EXTRA_OPTS="... --user --map-root-user"
+   # - map portage as container's root user:
+   #       echo 'PORTAGE_USERNAME=root' >> gentoo-$ARCH/etc/portage/make.conf
+   #       echo 'PORTAGE_GRPNAME=root' >> gentoo-$ARCH/etc/portage/make.conf
+   # - use unprivileged container start:
+   #gentoo-chrootiez/scripts/run_chroot.sh gentoo-$ARCH 32 "$@"
 
 ./gentoo-$arch.sh
 

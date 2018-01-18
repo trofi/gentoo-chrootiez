@@ -31,7 +31,7 @@ touch "$chroot_path"/dev/console
 mount --bind "$(tty)" "$chroot_path"/dev/console
 
 # pass through other basic /dev/* as-is
-for f in full null random urandom zero; do
+for f in full null random tty urandom zero; do
     touch "$chroot_path"/dev/"${f}"
     mount --bind /dev/"${f}" "$chroot_path"/dev/"${f}"
 done

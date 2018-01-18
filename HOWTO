@@ -30,6 +30,11 @@ echo 'ACCEPT_KEYWORDS="~$ARCH"'      >> /etc/portage/make.conf
 
 eselect profile set 1
 
+# for unprivileged container:
+echo 'source /bound/conf/bashrc.user' >> /etc/portage/bashrc
+# for unprivileged --map-root-user container:
+echo 'source /bound/conf/make.conf.user' >> /etc/portage/make.conf
+
 # Done!
 
 # A few tools I use all the time:

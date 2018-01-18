@@ -1,0 +1,7 @@
+# in unprivileved  user namespaces chown does not work
+# as user namespace allow you to map single UID (usually root)
+# anything else is bound to fail.
+# Thus just include it in bashrc in such environments:
+#    $ echo 'source /bound/conf/bashrc.user' >> /etc/portage/bashrc
+chown() { :; }
+fowners() { :; }

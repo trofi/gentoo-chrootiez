@@ -57,7 +57,7 @@ mount -t sysfs  sysfs  "$chroot_path"/sys
 # semantics on /dev/pts in each mode.
 case "${CHROOTIEZ_DEVPTS}" in
     newinstance)
-        mount -t devpts devpts -onewinstance,ptmxmode=0666,mode=620,gid=5 "$chroot_path"/dev/pts
+        mount -t devpts devpts -onewinstance,ptmxmode=0666,mode=620,gid=${CHROOTIEZ_DEVPTS_GID:-5} "$chroot_path"/dev/pts
         # don't use the default one
         rm -v "$chroot_path"/dev/ptmx
         ln -fsv pts/ptmx "$chroot_path"/dev/ptmx

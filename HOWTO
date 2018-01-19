@@ -16,9 +16,8 @@ cd ..
    # For that you need:
    # - enable user namespaces at gentoo-chrootiez/chrootiez_config:
    #       CHROOTIEZ_UNSHARE_EXTRA_OPTS="... --user --map-root-user"
-   # - map portage as container's root user:
-   #       echo 'PORTAGE_USERNAME=root' >> gentoo-$ARCH/etc/portage/make.conf
-   #       echo 'PORTAGE_GRPNAME=root' >> gentoo-$ARCH/etc/portage/make.conf
+   #       CHROOTIEZ_DEVPTS=newinstance
+   #       CHROOTIEZ_DEVPTS_GID=0
    # - use unprivileged container start:
    #gentoo-chrootiez/scripts/run_chroot.sh gentoo-$ARCH 32 "$@"
 

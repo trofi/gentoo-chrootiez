@@ -35,30 +35,3 @@ echo 'source /bound/conf/bashrc.user' >> /etc/portage/bashrc
 echo 'source /bound/conf/make.conf.user' >> /etc/portage/make.conf
 
 # Done!
-
-# A few tools I use all the time:
-
-emerge -v $(echo
-    # gentoo usage
-    app-portage/eix
-    app-portage/gentoolkit
-
-    # system
-    sys-apps/mlocate
-    sys-process/htop
-
-    # pagers/editors
-    app-misc/mc
-    app-text/lv
-
-    # debugging
-    dev-util/strace
-    sys-devel/gdb
-
-    # arch testing
-    app-text/wgetpaste
-    dev-python/requests
-
-    # random fixes
-    dev-vcs/git
-)

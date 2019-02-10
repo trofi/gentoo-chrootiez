@@ -59,8 +59,8 @@ case "${CHROOTIEZ_DEVPTS}" in
     newinstance)
         mount -t devpts devpts -onewinstance,ptmxmode=0666,mode=620,gid=${CHROOTIEZ_DEVPTS_GID:-5} "$chroot_path"/dev/pts
         # don't use the default one
-        rm -v "$chroot_path"/dev/ptmx
-        ln -fsv pts/ptmx "$chroot_path"/dev/ptmx
+        rm "$chroot_path"/dev/ptmx
+        ln -fs pts/ptmx "$chroot_path"/dev/ptmx
         ;;
     host)
         mount --bind /dev/pts "$chroot_path"/dev/pts

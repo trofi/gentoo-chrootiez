@@ -87,6 +87,7 @@ case "$chroot_bits" in
 esac
 info "entering chroot ..."
 $setarch_wrapper chroot "$chroot_path" /run_from_chroot "$@"
+result=$?
 # for daemons you might like to use:
 #>$chroots_base/$chroot_name.log 2>&1
 info "... exited from chroot"
@@ -107,3 +108,5 @@ do
         umount "$dest_d"
     fi
 done
+
+exit "${result}"

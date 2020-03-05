@@ -1,0 +1,8 @@
+### privileged example (enabled by default):
+CHROOTIEZ_UNSHARE_EXTRA_OPTS="--ipc --mount --pid --uts --fork"
+CHROOTIEZ_DEVPTS=newinstance
+
+### unprivileged example:
+#CHROOTIEZ_UNSHARE_EXTRA_OPTS="--ipc --mount --pid --uts --fork --user --map-root-user"
+#CHROOTIEZ_DEVPTS=newinstance
+#CHROOTIEZ_DEVPTS_GID=0

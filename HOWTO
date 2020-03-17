@@ -6,7 +6,7 @@ cd ../..
 #    http://distfiles.gentoo.org/releases/$ARCH/autobuilds/
 mkdir gentoo-$ARCH
 cd    gentoo-$ARCH
-tar xvpf ../stage3-*.tar.bz2
+tar xvpf ../stage3-*.tar.xz
 cd ..
 
 # create ./gentoo-$ARCH.sh with contents like the following:
